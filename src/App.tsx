@@ -4,15 +4,16 @@ import {Switch, Route, BrowserRouter, Redirect} from "react-router-dom";
 import ListOldRangeLogsView from "./components/ListOldRangeLogsView";
 import AddOldRangeLogForm from "./components/AddOldRangeLogForm";
 import EditOldRangeLogForm from "./components/EditOldRangeLogForm";
+import {Navbar} from "./app/Navbar";
 
 function App() {
     const renderAddOldRangeLogForm = (props: any) => {
         return <AddOldRangeLogForm {...props} />
     }
 
-
     return (
         <BrowserRouter>
+            <Navbar/>
             <div className="App">
                 <Switch>
                     <Route exact={true} path="/" render={() => (

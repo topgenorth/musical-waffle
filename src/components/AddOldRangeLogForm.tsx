@@ -1,5 +1,5 @@
 import React from 'react';
-import {getCurrentDate} from "./utils";
+import {getCurrentDate} from "../app/utils";
 import {useDispatch, useSelector} from "react-redux";
 import {OLD_RANGE_LOG_ADD, OldRangeLog} from "../store/OldRangeLogReducer";
 import {AppState} from "../store/AppState";
