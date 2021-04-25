@@ -1,8 +1,8 @@
 import React from "react";
 
-const ListOldRangeLogs = () => {
+const ListOldRangeLogsView = () => {
     return <div>List the old range logs.</div>
 
 
 };
-export default ListOldRangeLogs;
+export default ListOldRangeLogsView;

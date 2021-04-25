@@ -1,23 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import {Switch, Route} from "react-router-dom";
-import ListOldRangeLogs from "./components/ListOldRangeLogs";
-import AddOldRangeLog from "./components/AddOldRangeLog";
-import EditOldRangeLog from "./components/EditOldRangeLog";
+import {Switch, Route, BrowserRouter, Redirect} from "react-router-dom";
+import ListOldRangeLogsView from "./components/ListOldRangeLogsView";
+import AddOldRangeLogForm from "./components/AddOldRangeLogForm";
+import EditOldRangeLogForm from "./components/EditOldRangeLogForm";
 
 function App() {
-    const renderEditOldRangeLog = (props: any) => {
-        return <EditOldRangeLog {...props} date="Today"/>
-    };
+    const renderAddOldRangeLogForm = (props: any) => {
+        return <AddOldRangeLogForm {...props} />
+    }
+
 
     return (
-        <Switch>
-            <Route exact={true} path="/" component={ListOldRangeLogs}/>
-            <Route exact={true} path="/add" component={AddOldRangeLog}/>
-            <Route path="/edit/:id" component={EditOldRangeLog}>
-            </Route>
-        </Switch>
+        <BrowserRouter>
+            <div className="App">
+                <Switch>
+                    <Route exact={true} path="/" render={() => (
+                        <React.Fragment>
+                            <ListOldRangeLogsView/>
+                        </React.Fragment>
+                    )}/>
+                    <Route exact={true} path="/add" render={renderAddOldRangeLogForm}/>
+                    <Route path="/edit/:id" component={EditOldRangeLogForm}/>
+                    d <Redirect to="/"/>
+                </Switch>
+            </div>
+        </BrowserRouter>
     );
 }
 
